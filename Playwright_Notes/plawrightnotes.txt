@@ -1,0 +1,188 @@
+
+
+
+17/7/2025
+
+
+Playwright-- >
+
+What is Playwright?
+-Playwright is an open-source Automation library created and maintained by Microsoft for performing End-to-End 
+testing. it allows us to automate browsers(like Chromium, Firebox,webkit..etc).
+
+It perform actions like ->
+-Navigation of web pages.
+-Clicking button events.
+-Filling forms.
+-taking screenshots.
+-perform complex testing for users.
+
+-It supports Single & Multipage application Automation
+
+*Key feature of Playwright
+-Playwright supports Multiple browsers.
+-it supports Headless and Headed modes.
+-auto waiting.
+-parallel execution.
+-Network Mocking & Api Mocking
+-visual testing
+-CI/CD ready 
+
+*Comman uses
+-Login/Logout Automation
+-Form validation
+-UI Flow validation
+-Responsive testing
+-API Mocking during frontend testing.
+
+
+* Software pre-requiements
+-node.js
+    node -v
+*npm
+    npm -v
+*typescript
+    tsc -v
+    npm install -g typescript // command to install typescript
+*editor (Vs code)
+
+
+
+* How to create Playwright project
+npm init playwright@latest
+npm playwright test --project Chromium
+
+
+npx playwright test
+    Runs the end-to-end tests.
+
+  npx playwright test --ui
+    Starts the interactive UI mode.
+
+  npx playwright test --project=chromium
+    Runs the tests only on Desktop Chrome.
+
+  npx playwright test example
+    Runs the tests in a specific file.
+
+  npx playwright test --debug
+    Runs the tests in debug mode.
+
+  npx playwright codegen
+    Auto generate tests with Codegen.
+
+We suggest that you begin by typing:
+
+    npx playwright test
+
+And check out the following files:
+  - .\e2e\example.spec.ts - Example end-to-end test
+  - .\tests-examples\demo-todo-app.spec.ts - Demo Todo App end-to-end tests
+  - .\playwright.config.ts - Playwright Test configuration
+
+Visit https://playwright.dev/docs/intro for more information. ✨
+
+Happy hacking! 🎭
+
+
+*How to start playwright project
+npx playwright test
+
+* folder structure
+node_modules: all dependency and dev dependency will install in it.
+package.json:all install dependency entry will found here.
+package-lock.json : detail description of all dependency will found here.
+
+tests folder: It is used to write own Automation script
+test-examples folder: sample automation script found here, provide playwright
+
+Playwright show report -->  npx playwright show-report 
+
+Note: By default all playwright automation script run in Headless mode.
+
+*how to execute automation with Headed mode 
+  npx playwright test --headed
+
+*how to execute automation script in headed mode with Single browsers
+
+  npx playwright test --headed --project=chromium
+
+
+to run in playwright in Ui mode  Also Knowns as time travel debbuger
+npx playwright test --ui
+
+*How to write own automation test script and what are dependency required.
+
+
+//To update playwright
+  npm install playwright --save-dev
+
+//to install playwright/test
+  npm install @playwright/test --save-dev
+
+//How to install typescript module 
+  npm install typescript --save-dev
+ 
+//To initialize typescript or make compatible  -- To install json file
+  npx tsc --init         //it will generate typescript config and we need to make changes target = "ES6npx"
+
+
+------------------------------------------------------------------------------------------------------
+  //18/07/2025
+
+Locator:
+it is to find an element on page at the any moment.
+ 
+1. Id selector(#): Select an element base on Id.
+const elementName = page.locator("id=#idName");
+ 
+2. Class Selector(.): Select element based on class name
+const elementName = page.locator(".className);
+ 
+3.text selector: Select an element bases on what text it contain.
+const elementName = page.locator("'[text='textFormation']");
+ 
+4.CSS Selector: Select an element bases on their css propety
+const elementName = page.locator("css=button#id");
+ 
+5.Xpath Selector: Select on element bases on their Xpath query(in this we use element attribute and its value)
+const elementName= page.locator("xpath=//button[text()='submit']");
+
+
+
+  *browser context:
+  -browsercontext is an instance of browser or you can say seperate with incognito mode. where 
+  it store user session and cookies sepwratly, it is use for authentication
+  -if there is multiple user then an only then we use.we do not use it for single user.
+
+
+  API
+  *Handling authentication API 
+  -here we write automation test script for authorizing user.
+
+  btoa  
+
+====================================================================================================
+21/07/2025
+
+Assertion:
+-In playwright Assertion is use to verify that application behaves as expected or not during testing.
+they ensure that UI, Element, data are in correct state before or after performing action.
+-playwright provide us built-in Assertion throught expect() method, expectmethod provided by
+'playwright/test package'.
+
+Example:
+-toBeVissible() : it will pass test if element is visiable
+-toHaveText() : It will pass test if element has text or data in it
+-toBeEnabled() : It will pass test if element is enable
+
+await page.pause(); // it will pause execution an open playwright inspector
+
+command to test file on single browser
+npx playwright test Assertion.spec.ts -- project chromium --headed
+
+-soft Assertion : it will execute next test cases even though test cases failed.
+
+*caustom Assertion:
+-we need to write custom Assertion for complex conditions and special bussiness logic 
+-we 

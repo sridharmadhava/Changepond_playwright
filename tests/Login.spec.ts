@@ -22,3 +22,5 @@ test("login test",async()=>{
     // browser.close();
    
 });
+
+//locator the element. 7263.80 8,954 10208
