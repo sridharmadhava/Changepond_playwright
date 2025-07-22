@@ -127,6 +127,8 @@ npx playwright test --ui
   npx tsc --init         //it will generate typescript config and we need to make changes target = "ES6npx"
 
 
+To run in specific browser-->
+npx playwright test modelpopup.spec.ts --project chromium --headed 
 ------------------------------------------------------------------------------------------------------
   //18/07/2025
 
@@ -157,32 +159,79 @@ const elementName= page.locator("xpath=//button[text()='submit']");
 
 
   API
-  *Handling authentication API 
-  -here we write automation test script for authorizing user.
+  *Handling authentication 
 
   btoa  
 
-====================================================================================================
-21/07/2025
+  =============================================================================================
+  21/07/2025
 
-Assertion:
--In playwright Assertion is use to verify that application behaves as expected or not during testing.
-they ensure that UI, Element, data are in correct state before or after performing action.
--playwright provide us built-in Assertion throught expect() method, expectmethod provided by
-'playwright/test package'.
-
-Example:
--toBeVissible() : it will pass test if element is visiable
--toHaveText() : It will pass test if element has text or data in it
--toBeEnabled() : It will pass test if element is enable
-
+  Assertion:
+-In PlayWright assertion is use to verify that the application behaves as expected or not during testing. they ensure that UI, Element, data are in correct state before or after performing action.
+-playwright provide us built-in asertion throught expect() method, expect method 
+provided by 'playwright/test packages'
+ 
+example:
+-toBeVisible() : it will pass test if element is toBeVisible.
+-toHaveText() : it will pass test if element has text or data in it.
+-toBeEnabled() : it will pass test if element is enable.
+ 
 await page.pause(); // it will pause execution an open playwright inspector
-
+ 
 command to test file on single browser
-npx playwright test Assertion.spec.ts -- project chromium --headed
+npx playwright test assertion.spec.ts --project chromium --headed
+ 
+-soft Assertion : it will execute next test cases even through test case failed.
+ 
+*Custom Assertion
+-we need to write Custom assertion for complex condition and special bussiness logic 
+-we can make reusable logic
+-we can use it for dynamic data comdition.
 
--soft Assertion : it will execute next test cases even though test cases failed.
 
-*caustom Assertion:
--we need to write custom Assertion for complex conditions and special bussiness logic 
--we 
+=====================================================================
+22/07
+
+*how to configure text according to your choice
+
+*Hooks 
+-Hooks allows us to run code before or after your text.
+-all hooks are part of test API provided by playwright
+-when we can use hooks
+EX:
+-Run setup logic before test
+-cleanup code after test
+
+Example of Hooks:
+-beforeAll() : run code once before all test in file
+-afterAll()  : run code once after all test in file
+-beforeEach() : run code everytime before all test in run file.
+-afterEach()  : run code everytime after all test in run file.
+
+
+How to use record features
+-it provide test script after performing action on web application or webpahes
+-it start record feature we have page.pause() methods in test code.
+
+*use of annotation
+*use of hooks
+
+test () : it is use to create block for perticular test
+describe(): it is use to wrap multiple test cases together belongging sam scenarios
+
+*fixture:
+-it is reusable piece of setup and teardown logical code that you can share across testing
+-it works like helper function
+-playwright provide us built-in fixture as well as we can create custom fixture
+
+Fixture task:
+You need to reuse login for multiple test using playwrite fixture.
+
+ API Mocking In playwright
+ -Mocking simutetes API Responses without hitting the real backend
+
+ *Why Mock?
+ -Backend is not ready
+ -Faster test
+ -simutetes errors(404,500,403-unauthorized, 200)
+ -control test data
