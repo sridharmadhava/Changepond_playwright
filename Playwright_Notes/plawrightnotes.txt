@@ -235,3 +235,32 @@ You need to reuse login for multiple test using playwrite fixture.
  -Faster test
  -simutetes errors(404,500,403-unauthorized, 200)
  -control test data
+
+//7252
+--------------------------------------------------------------------------------------------------
+23/7/25
+ 
+*End to End testing with modulerization
+-creating end to end test cases
+-splitting test into reusable module and component
+-Data Driven testing with parameterize
+-CI/CD Integration with Git and Git Hub
+ 
+ 
+-In End to End testing we verify that the complete functionlity of software Or application is working proper or Not from start to finish
+-we ensure that integrated component work together seamlessly.
+-In this we validate the entire workflow from users perspective.
+ 
+Example: Real Example
+    *user will login ===> product will add to cart => check out. 
+    *splitting test into reusable module and component
+
+Moduler in playwright - write once reuse multiple Times
+
+CI/CD
+-in this we configure git and github with playwright
+-there are two ways to use git and github with playwright
+1. while creating playwright project provide yes option for git configuration
+2. create yml file in existing project and write configuration setting in it.
+  create proper folder structure for yml file
+  .github/workflow/playwright.ymlg
